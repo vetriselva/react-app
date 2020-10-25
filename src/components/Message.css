@@ -1,0 +1,29 @@
+.message {
+  padding: 5px;
+  margin: 10px;
+  width: fit-content;
+  /* max-width: 40%; */
+}
+.message_card {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  margin: 10px;
+}
+.form {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+.main__margin {
+  margin-bottom: 40px;
+}
+.type_input {
+  flex: 1;
+}
+.type_button {
+  flex: 0;
+}
