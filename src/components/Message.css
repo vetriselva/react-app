@@ -11,19 +11,41 @@
   margin: 10px;
 }
 .form {
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
   display: flex;
   flex-direction: row;
+  margin: 15px;
+  z-index: 1;
+  height: 50px;
+  background-color: silver;
+  border-radius: 5px; */
 }
 .main__margin {
-  margin-bottom: 40px;
+  margin-bottom: 70px;
 }
 .type_input {
   flex: 1;
 }
 .type_button {
   flex: 0;
+}
+
+.message_chat {
+  display: flex;
+  background-color: tomato;
+  margin: 10px;
+  border-radius: 2px;
+  position: fixed;
+  bottom: 0;
+  width: 98%;
+  z-index: 1;
+}
+.message_chat > div {
+  padding: 10px;
+}
+.replay__wbutton {
+  padding: 5px;
 }
