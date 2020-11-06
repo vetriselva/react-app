@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import Main from './components/Main';
-
+// import Main from './components/Main';
+// import Login from './components/Login'
+import AppRouter from './components/Router';
 function App() {
   return (
     <div className="App">
-      <h2>Message App...</h2>
-      <Main/>
+      <AppRouter/>
+      {/*<Main/>*/}
+      {/* <Login/> */}
     </div>
   );
 }

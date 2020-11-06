@@ -1,5 +1,5 @@
 import { Card, CardContent, Typography,TextField , Button} from "@material-ui/core";
-import React, { memo, forwardRef, useState } from "react";
+import React, { memo, forwardRef, useState} from "react";
 import SendIcon from '@material-ui/icons/Send';
 import CancelPresentationIcon from '@material-ui/icons/CancelPresentation';
 import firebase from 'firebase';
@@ -11,10 +11,11 @@ const Message = forwardRef(( props ,ref )=> {
   const isUser = props.user === username;
   const name =  username ? username :'unknown';
   const bgcolor = isUser
-    ? { backgroundColor: "darksalmon" }
-    : { backgroundColor: "darkolivegreen" };
+    ? { backgroundColor: "" }
+    : { backgroundColor: "" };
   const [isreplay,setisReplay] = useState(false)
   const [replayData,setReplayData] = useState({})
+
   
   const replayHandler = (payload) => {
     setReplayData(payload)
@@ -25,7 +26,7 @@ const Message = forwardRef(( props ,ref )=> {
     setisReplay(false)
   }
   const updateMessageHandler= () =>{
-      let data = { username: props.user , 'text' : replayInput ,'timestamp' :firebase.firestore.FieldValue.serverTimestamp()}
+      let data = { username: props.user , 'text' : replayInput ,'timestamp' :firebase.firestore.FieldValue.serverTimestamp(), 'email': firebase.auth().currentUser.email}
       data['replay'] = replayData
       // console.log(data);
       // console.log('replay',data);
@@ -38,11 +39,34 @@ const Message = forwardRef(( props ,ref )=> {
   }
   return (
     <div className={`${isUser ? "message_card" : "message"}`}>
-      <Card className="" style={bgcolor} variant="outlined" onClick={()=> replayHandler({name:name ,text:text })}>
+     
+      <Card className="message__replay_card" style={bgcolor} variant="outlined" onClick={()=> replayHandler({name:name ,text:text })}>
         <CardContent>
-         {replay.text && <small>{replay.name} : {replay.text}</small>}  
+
+         {/* replay msg */}
+        {replay.text &&
+          <Card >
+            <CardContent  className="message__replay_card">
+            <small className="message__name"> {replay.name}  </small> 
+              <Typography  className="message_text message__replay_text"  variant="body1" component="h2">
+                <small className="message__text"> {replay.text}  </small> 
+              </Typography>
+            </CardContent>
+          </Card>
+        }
+         {/* rply msf end */}
+  
           <Typography  className="message_text"  variant="body1" component="h2">
-           {!isUser && `${name} :`} {text} 
+          {!isUser?
+          <div>
+            <small className="message__name"> {name}  </small> 
+            <small className="message__text"> {text}  </small>  
+          </div>
+          :
+          <small className="message__text"> {text}  </small>  
+
+          }
+          
           </Typography>
         </CardContent>
       </Card>
@@ -56,11 +80,13 @@ const Message = forwardRef(( props ,ref )=> {
             placeholder="enter message here..."
           />
           <div className="replay__wbutton">
-          <Button variant="contained"
-              color="primary" onClick={updateMessageHandler}> <SendIcon/> </Button>
             <Button variant="contained"
-              color="primary" onClick={replayCloseHandler}><CancelPresentationIcon/></Button>
-          
+                color="primary" onClick={updateMessageHandler}> <SendIcon/> 
+            </Button>
+            <Button variant="contained"
+                color="primary" onClick={replayCloseHandler}><CancelPresentationIcon/>
+            </Button>
+            
           </div>
            </div>
         </CardContent>

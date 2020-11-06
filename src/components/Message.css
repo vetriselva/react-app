@@ -10,20 +10,26 @@
   padding: 5px;
   margin: 10px;
 }
-.form {
-  /* position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+.message__replay_text {
+  overflow: hidden;
+  width: 160px;
+  height: 1.2em;
+  white-space: nowrap;
+}
+.message__name {
   display: flex;
-  flex-direction: row;
-  margin: 15px;
-  z-index: 1;
-  height: 50px;
-  background-color: silver;
-  border-radius: 5px; */
+  justify-content: column;
+  text-transform: capitalize;
+  font-family: Helvetica;
+}
+.message__text {
+  display: flex;
+  justify-content: column;
 }
 .main__margin {
+  margin-bottom: 70px;
+}
+.main__margin_top {
   margin-bottom: 70px;
 }
 .type_input {
@@ -32,10 +38,14 @@
 .type_button {
   flex: 0;
 }
-
+.message__replay_card {
+  background-color: silver;
+  border-radius: 0 10px 10px 10px;
+}
 .message_chat {
   display: flex;
-  background-color: tomato;
+  background-color: white;
+  border: 2px solid rgb(190, 188, 188);
   margin: 10px;
   border-radius: 2px;
   position: fixed;
@@ -48,4 +58,28 @@
 }
 .replay__wbutton {
   padding: 5px;
+}
+.sticky {
+  top: 0;
+  width: 100%;
+  background-color: white;
+  border: 2px solid lightgrey;
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile {
+  order: 1;
+  flex: 0;
+
+  /*
+  border-radius: 10px; */
+}
+.logout {
+  flex: 1;
+}
+.stickyy_username {
+  padding: 10px;
 }

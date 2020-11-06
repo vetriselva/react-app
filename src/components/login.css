@@ -1,0 +1,36 @@
+.login__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: darksalmon;
+  align-items: center;
+}
+.login__form > div {
+  margin: 20px;
+}
+.login__button > Button {
+  margin: 10px;
+}
+.signin__button > Button {
+  margin: 10px;
+}
+
+.signup__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: darkseagreen;
+  /*margin-top: 5%;
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+*/
+}
+.signup__form > div {
+  margin: 20px;
+}
+.alert-danger {
+  padding: 20px;
+  background-color: crimson;
+  font-size: 13px;
+}
